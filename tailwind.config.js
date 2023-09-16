@@ -17,10 +17,14 @@ export default {
         g_Button_Background: '#C240FF',
         g_Text_Shaded: '#ffffff80',
         g_Border_Shaded: '#626262',
-        g_Background_Shaded: '#3b3b3b'
+        g_Background_Shaded: 'rgb(59, 59, 59)',
+        g_Background_White_Shop: '#f5f5f5',
+        g_Background_Shaded_Shop: 'rgb(241, 242, 244)',
+        g_Border_Shaded_Shop: 'rgb(112, 112, 110)'
       },
       fontFamily:{
-        'primary': ['Dancing Script', 'cursive']
+        'primary': ['Dancing Script', 'cursive'],
+        'secondary': ["Poppins", 'sans-serif']
       },
       fontSize: {
         clamp: "clamp(1rem, 13vw, 5.2rem)",

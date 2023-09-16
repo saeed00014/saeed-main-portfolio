@@ -44,7 +44,7 @@ export const projects = [
       },
       {
         name: 'view Demo',
-        path: ''
+        path: '/shop'
       }
     ],
     skill : [

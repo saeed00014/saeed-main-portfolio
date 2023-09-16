@@ -37,9 +37,9 @@ const ProjectPage = () => {
                     {project.Link.map((link) => {
                       console.log(link.name)
                       return (
-                        <Link to={link.path} className='flex items-center justify-center w-8 h-8 bg-gray-900 rounded-full scale-115'>
+                        <a href={link.path} className='flex items-center justify-center w-8 h-8 bg-gray-900 rounded-full scale-115'>
                           {link.name == 'Github' ? <GitHubIcon /> : <ArrowOutwardIcon /> }
-                        </Link>
+                        </a>
                       )
                     })}
                   </div>

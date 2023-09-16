@@ -3,13 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*, *::after, *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 /* width */
 ::-webkit-scrollbar {
   height: 0px;
@@ -32,3 +25,11 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+

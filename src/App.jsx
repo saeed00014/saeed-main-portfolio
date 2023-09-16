@@ -7,10 +7,13 @@ import ProjectPage from "./pages/projects"
 import AboutPage from "./pages/about"
 import ContactPage from "./pages/contact"
 
+import './index.css'
+
 function App() {
 
   return (
     <BrowserRouter>
+      <div className="[&>*]:text-white [&>*]:bg-g_Background_Black [&>*]:font-secondary">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />}/>
@@ -19,8 +22,10 @@ function App() {
         <Route path="/contact" element={<ContactPage />}/>
       </Routes>
       <Footer />
+      </div>
     </BrowserRouter>
   )
 }
 
 export default App
+

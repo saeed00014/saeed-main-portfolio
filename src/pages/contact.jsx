@@ -65,7 +65,7 @@ const ContactPage = ({homeedition}) => {
             send me a massage
           </p>
         </div>
-        <form homeedition={homeedition} ref={form} onSubmit={sendEmail} className={`flex flex-col w-full max-w-[750px] gap-10`}>
+        <form homeedition={homeedition} ref={form} onSubmit={sendEmail} className={`flex flex-col w-full max-w-[750px] gap-10 [&_textarea]:bg-g_Background_Shaded [&_input]:bg-g_Background_Shaded `}>
           <div className='flex sm:flex-row flex-col gap-6'>
             <div className='flex flex-col w-full gap-2'>
               <label htmlFor='name' className='text-2xl'>Name</label>

@@ -5,6 +5,6 @@ import AppS from './amashop/App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    {window.location.href.includes('shop') ? <AppS /> : <App /> }
   </React.StrictMode>,
 )

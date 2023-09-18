@@ -55,7 +55,7 @@ const ContactPage = ({homeedition}) => {
   }
 
   return (
-    <section className='flex items-center justify-center w-screen min-h-screen pt-[80px]'>
+    <section className='flex sm:items-center justify-center w-screen min-h-screen h-full sm:pt-[80px] pt-[11rem]'>
       <div className={`flex flex-col items-center justify-center w-full gap-10`}>
         <div className='flex flex-col items-start justify-center w-full max-w-[750px] -mt-20 gap-2'>
           <h1 className='text-4xl font-[700]'>
@@ -103,7 +103,7 @@ const ContactPage = ({homeedition}) => {
             required= {true}/>
             {error2 && <p>must contain 9-212 characters</p>}
           </div>
-            <div className='relative'>
+            <div className='relative w-full h-14'>
               {loading && 
                 <span>
                   <SideLoadingCommponent  />

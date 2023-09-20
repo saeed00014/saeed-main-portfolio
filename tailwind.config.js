@@ -18,7 +18,7 @@ export default {
         g_Text_Shaded: '#ffffff80',
         g_Border_Shaded: '#626262',
         g_Background_Shaded: 'rgb(59, 59, 59)',
-        g_Background_White_Shop: '#f5f5f5',
+        g_Background_White_Shop: 'rgb(235, 235, 235)',
         g_Background_Shaded_Shop: 'rgb(241, 242, 244)',
         g_Border_Shaded_Shop: 'rgb(112, 112, 110)'
       },

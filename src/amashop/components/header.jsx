@@ -39,12 +39,12 @@ const Header = () => {
       <div className='flex flex-col w-full max-w-[1600px]'>
         <div className='flex justify-between h-16'>
           <div className='sm:flex hidden items-center justify-start w-1/4 gap-4'>
-            <Link to='/card' className='md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
+            <Link to='/shop/card' className='md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
               <RiShoppingCartLine className='lg:text-3xl text-2xl'/>
             </Link>
             <div className='flex border-[1px] rounded-[5px] py-2 [&>*:nth-child(1)]:border-r-[2px] [&>*:nth-child(1)]:border-r-g_Text_Black'>
-              <ATagMaker name='تبت نام' path='' />
-              <ATagMaker name='ورود' path='' icon={<LoginIcon />} />
+              <ATagMaker name='تبت نام' path='/shop' />
+              <ATagMaker name='ورود' path='/shop' icon={<LoginIcon />} />
             </div>
           </div>
           <div className='flex items-center justify-end sm:w-3/4 w-full lg:gap-8 gap-4'>
@@ -54,7 +54,7 @@ const Header = () => {
                 <SearchIcon />
               </label>
             </div>
-            <Link to='/' className='sm:flex hidden font-primary text-2xl font-[700]'>
+            <Link to='/shop' className='sm:flex hidden font-primary text-2xl font-[700]'>
               AMASHOP
             </Link>
             <div className='sm:hidden flex items-center justify-end md:w-5/6 w-full max-w-[600px] h-12 pr-10 bg-g_Background_Shaded_Shop rounded-[10px] text-[18px] cursor-pointer'>
@@ -64,7 +64,7 @@ const Header = () => {
               <p>
                 جستجو در
               </p>
-              <h1 to='/' className='absolute right-32 sm:hidden flex font-primary text-2xl font-[700]'>
+              <h1 to='/shop' className='absolute right-32 sm:hidden flex font-primary text-2xl font-[700]'>
                 AMASHOP
               </h1>
             </div>

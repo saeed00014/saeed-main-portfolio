@@ -8,32 +8,32 @@ import {GiHamburgerMenu} from 'react-icons/gi'
 export const navLink = [
   {
     name: 'دسته‌بندی کالاها',
-    path: '',
+    path: '/shop',
     icon: <GiHamburgerMenu />
   },
   {
     name: 'شگفت‌انگیزها',
-    path: '',
+    path: '/shop',
     icon: <TbDiscount />
   },
   {
     name: 'سوپرمارکت',
-    path: '',
+    path: '/shop',
     icon: <BiShoppingBag />
   },
   {
     name: 'پرفروش‌ترین‌ها',
-    path: '',
+    path: '/shop',
     icon: <AiOutlineFire />
   },
   {
     name: 'دریافت نمایندگی',
-    path: '',
+    path: '/shop',
     icon: <AiFillShop />
   },
   {
     name: 'درباره ما',
-    path: '',
+    path: '/shop',
     icon: <AiFillAmazonCircle />
   }
 ]
@@ -41,26 +41,27 @@ export const navLink = [
 import {TbCategory} from 'react-icons/tb'
 import {AiFillHome} from 'react-icons/ai'
 import {GoPerson} from 'react-icons/go'
+import {RiShoppingCartLine} from 'react-icons/ri'
 
 export const navLinkPhone = [
   {
     name: 'خانه',
-    path: '',
+    path: '/shop',
     icon: <AiFillHome />
   },
   {
     name: 'دسته‌بندی',
-    path: '',
+    path: '/shop',
     icon: <TbCategory />
   },
   {
     name: 'سبد خرید',
-    path: '',
-    icon: <TbCategory />
+    path: '/shop/card',
+    icon: <RiShoppingCartLine />
   },
   {
     name: 'آمای من',
-    path: '',
+    path: '/shop',
     icon: <GoPerson />
   }
 ]
@@ -112,76 +113,104 @@ import product10 from './images/product10.webp'
 
 export const productCardDiscount = [
   {
+    id: 1,
     img: product1,
+    title: 'این محصول را بخرید',
+    avalability: false,
+    remaining: '',
+    rate: 4.4,
     price: 950000,
     discountPrecent: 10,
-    discountPrice: '',
   },
   {
+    id: 2,
     img: product2,
-    price: 24000000 ,
-    discountPrecent: 1,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: 4,
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 3,
     img: product3,
-    price: 100000,
-    discountPrecent: 20,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: 1,
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 4,
     img: product4,
-    price: 8800000,
-    discountPrecent: 5,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
-    img: product8,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
-  },
-  {
-    img: product1,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
-  },
-  {
+    id: 5,
     img: product5,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 6,
     img: product6,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 7,
     img: product7,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 8,
     img: product8,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 9,
     img: product9,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   },
   {
+    id: 10,
     img: product10,
-    price: 2200000,
-    discountPrecent: 30,
-    discountPrice: '',
+    title: 'این محصول را بخرید',
+    avalability: true,
+    remaining: '',
+    rate: 2.5,
+    price: 950000,
+    discountPrecent: 10,
   }
 ]
 

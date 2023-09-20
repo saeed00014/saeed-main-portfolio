@@ -46,7 +46,7 @@ const AboutPage = () => {
           {skill.map((skill) => {
             return (
               <li className={`group relative flex items-center justify-center  p-4 bg-g_Background_Shaded rounded-2xl`}>
-                <img src={skill.img} alt={skill.name} className={`${skill.name == 'Tailwind' ? 'scale-[1.5]' : ''} ${skill.name == 'Rest-api' ? 'scale-[2.2]' : ''} ${skill.name == 'Redux' ? 'scale-[1.25]' : ''} object-contain w-[48px] h-[48px]`}/>
+                <img src={skill.img} alt={skill.name} className={`object-contain w-[48px] h-[48px]`}/>
                 <span className='group absolute -top-7 bg-g_Border_Shaded px-2 rotate-x-90 group-hover:rotate-x-0 transition-all duration-300'>
                   {skill.name}
                 </span>

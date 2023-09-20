@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { productCardDiscount } from '../data'
 
 import SectionWraper from '../components/hoc'
@@ -6,9 +6,23 @@ import SectionWraper from '../components/hoc'
 import { AiTwotoneStar } from 'react-icons/ai'
 import { AiOutlineStar } from 'react-icons/ai'
 import RateHandler from '../components/rateHandler'
+import { useDispatch, useSelector } from 'react-redux'
+import { addcard, deletecard, selectquantitycard } from '../../store/dataSlice'
 
 const CardPage = () => {
-  const CardMaker = ({product, e}) => {
+  const dispatch = useDispatch()
+  const data = useSelector((state) => state.data)
+  console.log(data.cardproducts)
+
+  const CardMaker = ({product}) => {
+    const [quantity, setQuantity] = useState(product.quantity)
+
+    const handleSelect = (e) => {
+      const value = e.target.value
+      dispatch(selectquantitycard({...product, quantity: Number(value)}))
+      setQuantity(value)
+    }
+
     return (
       <div className='flex flex-col bg-g_Text_White w-full h-fit'>
         <div className='flex flex-row-reverse'>
@@ -47,7 +61,7 @@ const CardPage = () => {
             </div>
             <div className='flex flex-row-reverse flex-wrap items-center pt-2'>
               <div className='relative flex items-center justify-center '>
-                <select id={product.id} name='تعداد' className='w-[73px] h-[30px] px-1 pb-1 rounded-[15px] bg-transparent shadow-3xl z-10'>
+                <select id={product.id} name='تعداد' value={quantity} onChange={(e) => handleSelect(e)} className='w-[73px] h-[30px] px-1 pb-1 rounded-[15px] bg-transparent shadow-3xl z-10'>
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
@@ -60,7 +74,7 @@ const CardPage = () => {
                 </select>
                 <label onClick={() => document.getElementById(product.id).click()} htmlFor={product.id} className='absolute left-0 top-0 flex items-center justify-center font-[500] text-[.8rem] w-[73px] h-[30px] px-1 pb-1 rounded-[15px] bg-g_Background_White_Shop shadow-3xl'>: تعداد</label> 
               </div>
-              <button className='border-l-[1px] px-4 h-6 min-w-max font-[400] text-[.8rem]'>
+              <button onClick={() => dispatch(deletecard(product))} className='border-l-[1px] px-4 h-6 min-w-max font-[400] text-[.8rem]'>
                 حذف
               </button>
               <button className='border-l-[1px] px-4 h-6 min-w-max font-[400] text-[.8rem]'>
@@ -76,7 +90,7 @@ const CardPage = () => {
         </div>
         </div>
           <div className='flex justify-end w-full pb-4 pt-1 pr-4 border-t-2'>
-          هزینه کل : {product.price} تومان
+          هزینه کل : {product.price * product.quantity} تومان
           </div>
       </div>
     )
@@ -94,7 +108,7 @@ const CardPage = () => {
           <div className='relative w-full'>
             <RateHandler product={product}/>
           </div>
-          <button className='bg-red-400 py-1 px-3 text-[.7rem] mt-5 rounded-[10px] text-g_Text_White'>
+          <button onClick={() => dispatch(addcard(product))} className='bg-red-400 py-1 px-3 text-[.7rem] mt-5 rounded-[10px] text-g_Text_White'>
             افزودن به سبد خرید
           </button>
         </div>
@@ -110,7 +124,8 @@ const CardPage = () => {
             سبد خرید
           </div>
           <div>
-            {productCardDiscount.map((product, e) => {
+            {data.cardproducts && 
+            data.cardproducts.map((product, e) => {
               return (
                 <CardMaker product={product}/>
               )
@@ -120,7 +135,14 @@ const CardPage = () => {
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col items-center justify-center w-[250px] h-[125px] p-4 bg-g_Text_White gap-4'>
             <div className='flex gap-1'>
-              <span>تومان</span><p>مورد</p><p>هزینه کل</p>  
+              <span className='flex flex-row-reverse'>
+                {data.totalprice} 
+                <p>تومان</p>  
+              </span>
+              <p className='flex flex-row-reverse'>
+                {data.totalitems}&#41;
+                <p>مورد</p>: &#40;
+              </p><p>هزینه کل</p>  
             </div>
             <button className='w-full pt-1 pb-2 rounded-full bg-red-400 text-g_Text_White font-[500]'>
               پرداخت صورت حساب

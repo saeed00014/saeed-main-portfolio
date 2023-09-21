@@ -12,7 +12,6 @@ import { addcard, deletecard, selectquantitycard } from '../../store/dataSlice'
 const CardPage = () => {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.data)
-  console.log(data.cardproducts)
 
   const CardMaker = ({product}) => {
     const [quantity, setQuantity] = useState(product.quantity)
@@ -133,15 +132,15 @@ const CardPage = () => {
           </div>
         </div>
         <div className='flex flex-col gap-4'>
-          <div className='flex flex-col items-center justify-center md:w-[250px] h-[125px] p-4 bg-g_Text_White gap-4'>
+          <div className='flex flex-col items-center justify-center md:w-[250px] h-[125px] p-2 bg-g_Text_White gap-4'>
             <div className='flex gap-1'>
               <span className='flex flex-row-reverse'>
                 {data.totalprice} 
-                <p>تومان</p>  
+                <p className='text-[.6rem]'>تومان</p>  
               </span>
               <p className='flex flex-row-reverse'>
                 {data.totalitems}&#41;
-                <p>مورد</p>: &#40;
+                <p>مورد</p>:&#40;
               </p><p>هزینه کل</p>  
             </div>
             <button className='w-full pt-1 pb-2 rounded-full bg-red-400 text-g_Text_White font-[500]'>

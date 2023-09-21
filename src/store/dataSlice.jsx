@@ -17,25 +17,36 @@ const dataSlice = createSlice({
     addcard(state, action) {
       const newItem = action.payload
       const foundedIndex = state.cardproducts.findIndex((product) => product.id == newItem.id)
-      
-      foundedIndex >=0 ? state.cardproducts[foundedIndex] = 
-        {...state.cardproducts[foundedIndex], quantity: state.cardproducts[foundedIndex].quantity < 9 
-          ? (state.cardproducts[foundedIndex].quantity + 1)
-            : state.cardproducts[foundedIndex].quantity } 
-              : state.cardproducts.push({...newItem, quantity: 1})
-      
+
+      foundedIndex >=0 
+        ? state.cardproducts[foundedIndex].quantity < 9 
+          ? (state.cardproducts[foundedIndex] =
+            {...state.cardproducts[foundedIndex], quantity: state.cardproducts[foundedIndex].quantity + 1},
+            state.totalitems = state.totalitems + 1, 
+            state.totalprice = state.totalprice + state.cardproducts[foundedIndex].price ) : ''
+        : (state.cardproducts.push({...newItem, quantity: 1}),
+          state.totalitems = state.totalitems + 1,
+          state.totalprice = state.totalprice + newItem.price)
     },
     deletecard(state, action) {
       const newitem = action.payload
+      const foundedProduct = state.cardproducts.find((product) => product.id == newitem.id)
+
+      state.totalitems = state.totalitems - foundedProduct.quantity
+      
       state.cardproducts = 
         state.cardproducts.filter((product) => product.id !== newitem.id)
     },
     selectquantitycard(state, action) {
       const newItem = action.payload
-      console.log(newItem)
       const foundedIndex = state.cardproducts.findIndex((product) => product.id == newItem.id)
+      const foundedProduct = state.cardproducts.find((product) => product.id == newItem.id)
 
-      state.cardproducts[foundedIndex] = newItem 
+      state.cardproducts[foundedIndex] = newItem
+      
+      state.totalprice = state.totalprice - foundedProduct.price * foundedProduct.quantity + newItem.price * newItem.quantity
+      
+      state.totalitems = state.totalitems - foundedProduct.quantity + newItem.quantity
     }
   }
 })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import SearchIcon from '@mui/icons-material/Search';
 import LoginIcon from '@mui/icons-material/Login';
@@ -10,9 +10,12 @@ import { styles } from '../styles';
 import { navLink, navLinkPhone } from '../data';
 
 const Header = () => {
+  const [active, setActive] = useState(window.location.href)
+  console.log(active)
+
   const ATagMaker = ({name, path, icon}) => {
     return (
-      <Link to={path} className='flex lg:px-4 px-2 font-bold min-w-max gap-1 text-[14px]'>
+      <Link onClick={() => setActive(path)} to={path} className='flex lg:px-4 px-2 font-bold min-w-max gap-1 text-[14px]'>
         {name}
         <span>
           {icon}
@@ -21,13 +24,14 @@ const Header = () => {
     )
   }
 
-  const LiMaker = ({name, path, icon, i}) => {
+  const LiMaker = ({ename, name, path, icon, activeIcon, i}) => {
     return (
-      <li className={`flex justify-center items-center ${i== '1' ? 'h-full' : 'h-8'}  xl:px-3 px-2`}>
+      <li onClick={() => setActive(path)} className={`flex justify-center items-center ${i== '1' ? 'h-full' : 'h-8'}  xl:px-3 px-2`}>
         <Link to={path} className={`flex ${i == '1' ? 'flex-col-reverse gap-2' : 'gap-1 '} font-[400] text-[14px] min-w-max`}> 
           {name}
           <span className={`flex items-center justify-center pt-[3px] ${i == '1' ? 'scale-[1.7]' :'scale-125'} `}>
-            {icon}
+            {active.substring(active.length - 4) == 'shop' && ename == 'shop' ? activeIcon
+            : active.includes(ename) && ename !== 'shop' ? activeIcon : icon}
           </span>
         </Link>
       </li>
@@ -39,7 +43,7 @@ const Header = () => {
       <div className='flex flex-col w-full max-w-[1600px]'>
         <div className='flex justify-between h-16'>
           <div className='sm:flex hidden items-center justify-start w-1/4 gap-4'>
-            <Link to='/shop/card' className='md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
+            <Link onClick={() => setActive('/shop/card')} to='/shop/card' className='md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
               <RiShoppingCartLine className='lg:text-3xl text-2xl'/>
             </Link>
             <div className='flex border-[1px] rounded-[5px] py-2 [&>*:nth-child(1)]:border-r-[2px] [&>*:nth-child(1)]:border-r-g_Text_Black'>
@@ -54,7 +58,7 @@ const Header = () => {
                 <SearchIcon />
               </label>
             </div>
-            <Link to='/shop' className='sm:flex hidden font-primary text-2xl font-[700]'>
+            <Link onClick={() => setActive('/shop')} to='/shop' className='sm:flex hidden font-primary text-2xl font-[700]'>
               AMASHOP
             </Link>
             <div className='sm:hidden flex items-center justify-end md:w-5/6 w-full max-w-[600px] h-12 pr-10 bg-g_Background_Shaded_Shop rounded-[10px] text-[18px] cursor-pointer'>
@@ -81,7 +85,7 @@ const Header = () => {
           </div>
           <ul className='flex flex-row-reverse justify-between items-center h-14 max-w-[1100px] [&>*:nth-child(1)]:pr-0'>
             <li className={`flex justify-center items-center gap-2 h-8 px-3`}>
-              <Link to={navLink[0].path} className='font-[700] text-[18px]  min-w-max'> 
+              <Link onClick={() => setActive(navLink[0].path)} to={navLink[0].path} className='font-[700] text-[18px]  min-w-max'> 
                 {navLink[0].name}
               </Link>
               <span className='flex items-center justify-center scale-125'>
@@ -106,7 +110,7 @@ const Header = () => {
         <nav className={`${styles.paddingX} fixed bottom-0 left-0 md:hidden flex flex-row-reverse items-center w-screen h-16 justify-between border-t-[3px] bg-white z-50`}>
           {navLinkPhone.map((link) => {
             return (
-              <LiMaker name={link.name} icon={link.icon} path={link.path} i='1' />
+              <LiMaker ename={link.ename} name={link.name} icon={link.icon} activeIcon={link.activeIcon} path={link.path} i='1' />
             )
           })}
         </nav>

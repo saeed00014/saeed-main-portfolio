@@ -39,30 +39,42 @@ export const navLink = [
 ]
 
 import {TbCategory} from 'react-icons/tb'
+import {BiSolidCategory} from 'react-icons/bi'
 import {AiFillHome} from 'react-icons/ai'
+import {AiOutlineHome} from 'react-icons/ai'
 import {GoPerson} from 'react-icons/go'
+import {BsFillPersonFill} from 'react-icons/bs'
 import {RiShoppingCartLine} from 'react-icons/ri'
+import {RiShoppingCart2Fill} from 'react-icons/ri'
 
 export const navLinkPhone = [
   {
+    ename: 'shop',
     name: 'خانه',
     path: '/shop',
-    icon: <AiFillHome />
+    icon: <AiOutlineHome />,
+    activeIcon: <AiFillHome />
   },
   {
+    ename: 'category',
     name: 'دسته‌بندی',
-    path: '/shop',
-    icon: <TbCategory />
+    path: '/shop/category',
+    icon: <TbCategory />,
+    activeIcon: <BiSolidCategory />
   },
   {
+    ename: 'card',
     name: 'سبد خرید',
     path: '/shop/card',
-    icon: <RiShoppingCartLine />
+    icon: <RiShoppingCartLine />,
+    activeIcon: <RiShoppingCart2Fill />
   },
   {
+    ename: 'myama',
     name: 'آمای من',
-    path: '/shop',
-    icon: <GoPerson />
+    path: '/shop/myama',
+    icon: <GoPerson />,
+    activeIcon: <BsFillPersonFill />
   }
 ]
 

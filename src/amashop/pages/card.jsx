@@ -25,9 +25,9 @@ const CardPage = () => {
 
     return (
       <div className='flex flex-col bg-g_Text_White w-full h-fit'>
-        <div className='flex flex-row-reverse'>
-          <div className='w-[12rem]'>
-            <img src={product.img} alt="" className='object-contain w-full h-full' />
+        <div className='flex sm:flex-row-reverse flex-col'>
+          <div className='flex items-center justify-center sm:w-[12rem] w-full'>
+            <img src={product.img} alt="" className='object-contain sm:w-[12rem] w-[8rem] h-full' />
           </div>
           <div className='flex flex-col justify-between text-right p-4'>
             <div className='flex flex-col items-end gap-1'>
@@ -118,7 +118,7 @@ const CardPage = () => {
 
   return (
     <section className='flex items-center justify-center w-screen'>
-      <div className='flex flex-row-reverse justify-center gap-4 w-full max-w-[1450px]'>
+      <div className='flex md:flex-row-reverse flex-col justify-center gap-4 w-full max-w-[1450px]'>
         <div className='flex flex-col w-full'>
           <div className='flex justify-end w-full bg-g_Text_White border-b-[1px] border-g_Border_Shaded_Shop text-2xl p-4'>
             سبد خرید
@@ -133,7 +133,7 @@ const CardPage = () => {
           </div>
         </div>
         <div className='flex flex-col gap-4'>
-          <div className='flex flex-col items-center justify-center w-[250px] h-[125px] p-4 bg-g_Text_White gap-4'>
+          <div className='flex flex-col items-center justify-center md:w-[250px] h-[125px] p-4 bg-g_Text_White gap-4'>
             <div className='flex gap-1'>
               <span className='flex flex-row-reverse'>
                 {data.totalprice} 
@@ -148,7 +148,7 @@ const CardPage = () => {
               پرداخت صورت حساب
             </button>
           </div>
-          <div className='flex flex-col [&>*:nth-child(1)]:rounded-t-[1rem]'>
+          <div className='flex md:flex-col flex-wrap items-center justify-around md:[&>*:nth-child(1)]:rounded-t-[1rem] gap-y-2'>
             {productCardDiscount.map((product, e) => {
               return (
                 <SuggestMaker product={product}/>

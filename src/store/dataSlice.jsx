@@ -47,10 +47,15 @@ const dataSlice = createSlice({
       state.totalprice = state.totalprice - foundedProduct.price * foundedProduct.quantity + newItem.price * newItem.quantity
       
       state.totalitems = state.totalitems - foundedProduct.quantity + newItem.quantity
+    },
+    clearall(state, action) {
+      state.cardproducts = []
+      state.totalitems = 0
+      state.totalprice = 0
     }
   }
 })
 
-export const { getAllProducts, addcard, deletecard, selectquantitycard } = dataSlice.actions;
+export const { getAllProducts, addcard, deletecard, selectquantitycard, clearall } = dataSlice.actions;
 
 export default dataSlice

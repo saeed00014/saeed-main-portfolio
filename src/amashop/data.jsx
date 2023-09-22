@@ -132,7 +132,7 @@ export const productCardDiscount = [
     remaining: '',
     rate: 4.4,
     price: 950000,
-    discountPrecent: 10,
+    discountPrecent: 0,
   },
   {
     id: 2,
@@ -141,7 +141,7 @@ export const productCardDiscount = [
     avalability: true,
     remaining: 4,
     rate: 2.5,
-    price: 950000,
+    price: 9500000,
     discountPrecent: 10,
   },
   {

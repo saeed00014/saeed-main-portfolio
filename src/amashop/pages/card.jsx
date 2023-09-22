@@ -7,7 +7,7 @@ import { AiTwotoneStar } from 'react-icons/ai'
 import { AiOutlineStar } from 'react-icons/ai'
 import RateHandler from '../components/rateHandler'
 import { useDispatch, useSelector } from 'react-redux'
-import { addcard, deletecard, selectquantitycard } from '../../store/dataSlice'
+import { addcard, clearall, deletecard, selectquantitycard } from '../../store/dataSlice'
 
 const CardPage = () => {
   const dispatch = useDispatch()
@@ -31,10 +31,12 @@ const CardPage = () => {
           <div className='flex flex-col justify-between text-right p-4'>
             <div className='flex flex-col items-end gap-1'>
               <p>{product.title}</p>
-              <span className='flex flex-row-reverse gap-1'>
-                {product.price} 
-                <p>تومان</p>  
-              </span>
+              <div className='flex flex-row-reverse gap-1'>
+                <p>
+                  {product.price}
+                </p>
+                <small>تومان</small>  
+              </div>
               <div className='flex flex-col text-[.8rem]'>
               <div className='flex gap-2 justify-end'>
                 <label htmlFor={`gift${product.id}`} className='pb-1'>این یک هدیه است</label>
@@ -46,12 +48,12 @@ const CardPage = () => {
                   </span> : <span className='flex w-fit font-[500]'>
                     نا موجود
                   </span>}
-                  {product.remaining ? <span className='flex gap-1 pt-[.1rem] text-red-600 -mt-[.2rem]'>
+                  {product.remaining ? <div className='flex gap-1 pt-[.1rem] text-red-600 -mt-[.2rem]'>
                     <p>
                       عدد در انبار باقی مانده  
                     </p>
                     _{product.remaining} 
-                  </span> : '' }
+                  </div> : '' }
                 </div>
                 <span>رنگ</span>
                 <span>حالت</span>
@@ -129,6 +131,11 @@ const CardPage = () => {
                 <CardMaker product={product}/>
               )
             })}
+          </div>
+          <div className='flex w-full justify-end'>
+            {data.cardproducts.length > 0 && <button onClick={() => dispatch(clearall())} className='flex items-center justify-center bg-red-400 text-g_Text_White py-3 px-12 w-fit mt-4'>
+              حذف همه
+            </button>}
           </div>
         </div>
         <div className='flex flex-col gap-4'>

@@ -29,12 +29,12 @@ export const h1 = {
 }
 
 import AjorPlus from './images/Ajorplushdash.png'
-import Amashop from './images/amashop.png'
+import amashop from './images/amashop.png'
 
 export const projects = [
   {
     id: '1',
-    img: Amashop,
+    img: amashop,
     name: 'AMASHOP',
     dis: 'This is my newest project a private website its a brick factory witch has some forges and we are able to edit our forges delete or add more mouths for those. you can also make users for login and access',
     Link : [

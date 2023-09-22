@@ -8,10 +8,11 @@ import {RiShoppingCartLine} from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLink, navLinkPhone } from '../data';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const data = useSelector((state) => state.data)
   const [active, setActive] = useState(window.location.href)
-  console.log(active)
 
   const ATagMaker = ({name, path, icon}) => {
     return (
@@ -26,7 +27,7 @@ const Header = () => {
 
   const LiMaker = ({ename, name, path, icon, activeIcon, i}) => {
     return (
-      <li onClick={() => setActive(path)} className={`flex justify-center items-center ${i== '1' ? 'h-full' : 'h-8'}  xl:px-3 px-2`}>
+      <li onClick={() => setActive(path)} className={`relative flex justify-center items-center ${i== '1' ? 'h-full' : 'h-8'}  xl:px-3 px-2`}>
         <Link to={path} className={`flex ${i == '1' ? 'flex-col-reverse gap-2' : 'gap-1 '} font-[400] text-[14px] min-w-max`}> 
           {name}
           <span className={`flex items-center justify-center pt-[3px] ${i == '1' ? 'scale-[1.7]' :'scale-125'} `}>
@@ -34,6 +35,10 @@ const Header = () => {
             : active.includes(ename) && ename !== 'shop' ? activeIcon : icon}
           </span>
         </Link>
+        {ename == 'card' && <span className='absolute right-3 bottom-6 flex items-center justify-center w-2 h-2 p-[.7rem] rounded-full bg-red-500 text-g_Text_White'>
+            {data.cardproducts.length}
+          </span>
+        }
       </li>
     )
   }
@@ -43,8 +48,11 @@ const Header = () => {
       <div className='flex flex-col w-full max-w-[1600px]'>
         <div className='flex justify-between h-16'>
           <div className='sm:flex hidden items-center justify-start w-1/4 gap-4'>
-            <Link onClick={() => setActive('/shop/card')} to='/shop/card' className='md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
+            <Link onClick={() => setActive('/shop/card')} to='/shop/card' className='relative md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
               <RiShoppingCartLine className='lg:text-3xl text-2xl'/>
+              <span className='absolute right-1 -bottom-3 flex items-center justify-center w-3 h-3 p-[.8rem] rounded-full bg-red-500 text-g_Text_White'>
+                {data.cardproducts.length}
+              </span>
             </Link>
             <div className='flex border-[1px] rounded-[5px] py-2 [&>*:nth-child(1)]:border-r-[2px] [&>*:nth-child(1)]:border-r-g_Text_Black'>
               <ATagMaker name='تبت نام' path='/shop' />

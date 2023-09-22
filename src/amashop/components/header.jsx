@@ -28,7 +28,7 @@ const Header = () => {
   const LiMaker = ({ename, name, path, icon, activeIcon, i}) => {
     return (
       <li onClick={() => setActive(path)} className={`relative flex justify-center items-center ${i== '1' ? 'h-full' : 'h-8'}  xl:px-3 px-2`}>
-        <Link to={path} className={`flex ${i == '1' ? 'flex-col-reverse gap-2' : 'gap-1 '} font-[400] text-[14px] min-w-max`}> 
+        <Link to={path} className={`flex ${i == '1' ? 'flex-col-reverse gap-2' : 'gap-1 '} font-sans text-[14px] min-w-max`}> 
           {name}
           <span className={`flex items-center justify-center pt-[3px] ${i == '1' ? 'scale-[1.7]' :'scale-125'} `}>
             {active.substring(active.length - 4) == 'shop' && ename == 'shop' ? activeIcon
@@ -66,7 +66,7 @@ const Header = () => {
                 <SearchIcon />
               </label>
             </div>
-            <Link onClick={() => setActive('/shop')} to='/shop' className='sm:flex hidden font-primary text-2xl font-[700]'>
+            <Link onClick={() => setActive('/shop')} to='/shop' className='sm:flex hidden font-primary text-2xl font-black text-red-500'>
               AMASHOP
             </Link>
             <div className='sm:hidden flex items-center justify-end md:w-5/6 w-full max-w-[600px] h-12 pr-10 bg-g_Background_Shaded_Shop rounded-[10px] text-[18px] cursor-pointer'>

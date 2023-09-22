@@ -29,10 +29,12 @@ const ProjectPage = () => {
           {projects.map((project) => {
             return (
               <Tilt options={options} key={project.id} className='flex'>
-                <div className='relative flex flex-col sm:w-[350px] w-[300px] sm:p-4 p-2 bg-g_Background_Shaded rounded-[15px] gap-4'>
+                <div className='relative flex flex-col justify-between sm:w-[350px] w-[300px] sm:p-4 p-2 bg-g_Background_Shaded rounded-[15px] gap-4'>
                   <img src={project.img} alt="project intro image" className='rounded-[10px]' />
-                  <h1 className='text-2xl font-[600]'>{project.name}</h1>
-                  <p>{project.dis}</p>
+                  <div className='flex flex-col gap-0'>
+                    <h1 className='text-right text-2xl font-[600]'>{project.name}</h1>
+                    <p className='font-sans text-right text-[1.1rem] font-[500]'>{project.dis}</p>
+                  </div>
                   <div className='flex absolute sm:top-5 top-3 sm:right-5 right-3 sm:gap-2 gap-1'>
                     {project.Link.map((link) => {
                       console.log(link.name)
@@ -43,11 +45,12 @@ const ProjectPage = () => {
                       )
                     })}
                   </div>
-                  <div className='flex w-full justify-between gap-1'>
+                  <div className='flex flex-wrap w-full justify-around gap-[.1rem]'>
                     {project.skill.map((skill) => {
                       return (
-                        <p className='flex items-center justify-center sm:px-3 px-2 sm:py-2 py-1 rounded-[5px] bg-gray-900'>
+                        <p className='relative flex items-center justify-center rounded-[5px]'>
                           {skill}
+                          <span className='absolute bottom-0 right-0 left-0 h-[1px] bg-g_Text_White'></span>
                         </p>
                       )
                     })}

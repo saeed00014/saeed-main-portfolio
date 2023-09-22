@@ -36,7 +36,7 @@ export const projects = [
     id: '1',
     img: amashop,
     name: 'AMASHOP',
-    dis: 'This is my newest project a private website its a brick factory witch has some forges and we are able to edit our forges delete or add more mouths for those. you can also make users for login and access',
+    dis: 'این یک نسخه از فروشگاه هست که کاملا ریسپانسیوه صفحه های خانه و سبد خرید رو تو این نسخه قرار دادم که میتونید برسی کنید پیشنهاد می کنم حتمی مقداری با سبد خرید کار کنید چون نسخه تقریبا کاملش رو قرار دادم  ',
     Link : [
       {
         name: 'Github',
@@ -48,7 +48,7 @@ export const projects = [
       }
     ],
     skill : [
-      'Reactjs', 'Restapi', 'Express', 'Tailwind' 
+      'Reactjs', 'Redux', 'Restapi', 'Express', 'Tailwind'
     ]
   },
   {

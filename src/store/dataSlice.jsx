@@ -22,11 +22,11 @@ const dataSlice = createSlice({
         ? state.cardproducts[foundedIndex].quantity < 9 
           ? (state.cardproducts[foundedIndex] =
             {...state.cardproducts[foundedIndex], quantity: state.cardproducts[foundedIndex].quantity + 1},
-            state.totalitems = state.totalitems + 1, 
-            state.totalprice = state.totalprice + state.cardproducts[foundedIndex].price ) : ''
+            state.totalitems =  newItem.avalability ? state.totalitems + 1 : state.totalitems, 
+            state.totalprice = newItem.avalability ? state.totalprice + state.cardproducts[foundedIndex].price : state.totalprice ) : ''
         : (state.cardproducts.push({...newItem, quantity: 1}),
-          state.totalitems = state.totalitems + 1,
-          state.totalprice = state.totalprice + newItem.price)
+          state.totalitems = newItem.avalability ? state.totalitems + 1 : state.totalitems,
+          state.totalprice = newItem.avalability ? state.totalprice + newItem.price : state.totalprice)
     },
     deletecard(state, action) {
       const newitem = action.payload

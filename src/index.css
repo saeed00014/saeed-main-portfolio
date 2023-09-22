@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: yekanb;
+  src: url('Yekan.ttf');
+}
+
+@font-face {
+  font-family: sansi;
+  src: url('Iranian\ Sans.ttf');
+
+}
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;

@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8",
     "@reduxjs/toolkit": "^1.9.5",
+    "@tag0/use-text-width": "^1.2.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "react": "^18.2.0",

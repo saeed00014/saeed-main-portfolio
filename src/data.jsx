@@ -29,7 +29,7 @@ export const h1 = {
 }
 
 import AjorPlus from './images/Ajorplushdash.png'
-import amashop from './images/amashop.png'
+import amashop from './images/amashop.jpg'
 
 export const projects = [
   {

@@ -142,7 +142,7 @@ export const productCardDiscount = [
     remaining: 4,
     rate: 4.9,
     price: 25000000,
-    discountPrecent: 10,
+    discountPrecent: 3,
   },
   {
     id: 3,
@@ -152,7 +152,7 @@ export const productCardDiscount = [
     remaining: 1,
     rate: 1.3,
     price: 100000,
-    discountPrecent: 10,
+    discountPrecent: 15,
   },
   {
     id: 4,
@@ -162,7 +162,7 @@ export const productCardDiscount = [
     remaining: '',
     rate: 3.5,
     price: 12500000,
-    discountPrecent: 10,
+    discountPrecent: 1,
   },
   {
     id: 5,
@@ -172,7 +172,7 @@ export const productCardDiscount = [
     remaining: '',
     rate: 2.3,
     price: 1975000,
-    discountPrecent: 10,
+    discountPrecent: 0,
   },
   {
     id: 6,
@@ -192,7 +192,7 @@ export const productCardDiscount = [
     remaining: '',
     rate: 4,
     price: 450000,
-    discountPrecent: 10,
+    discountPrecent: 20,
   },
   {
     id: 8,
@@ -202,7 +202,7 @@ export const productCardDiscount = [
     remaining: '',
     rate: .5,
     price: 300000,
-    discountPrecent: 10,
+    discountPrecent: 35,
   },
   {
     id: 9,
@@ -212,7 +212,7 @@ export const productCardDiscount = [
     remaining: '',
     rate: 4.1,
     price: 3950000,
-    discountPrecent: 10,
+    discountPrecent: 11,
   },
   {
     id: 10,
@@ -222,7 +222,7 @@ export const productCardDiscount = [
     remaining: 5,
     rate: 5,
     price: 35000000,
-    discountPrecent: 10,
+    discountPrecent: 2,
   }
 ]
 

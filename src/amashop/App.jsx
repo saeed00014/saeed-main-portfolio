@@ -11,7 +11,7 @@ function AppS() {
 
   return (
     <BrowserRouter>
-    <div className="[&>*]:bg-g_Background_White_Shop [&>*]:text-black [&>*]:font-sans [&>*]:font-[500]">
+    <div style={{direction: 'rtl'}} className="[&>*]:bg-g_Background_White_Shop [&>*]:text-black [&>*]:font-sans [&>*]:font-[500]">
       <Header />
       <Routes>
         <Route path="/shop" element={<HomePage />} />

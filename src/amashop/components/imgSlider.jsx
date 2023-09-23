@@ -38,10 +38,10 @@ const ImgSlider = () => {
       </div>
       <div className='absolute bottom-[15%] sm:right-[10%] right-1 sm:scale-100 scale-90  flex gap-2 z-30'>
         <button onClick={() => setActive(active <= 1 ? 6 : active -1 )} className='flex items-center justify-center w-10 h-10 rounded-full bg-g_Text_White cursor-pointer'>
-          <BsArrowLeftShort className='text-2xl'/>
+          <BsArrowRightShort className='text-2xl' />
         </button>
         <button onClick={() => setActive(active <= 5 ? active + 1 : 1)} className='flex items-center justify-center w-10 h-10 rounded-full bg-g_Text_White cursor-pointer'>
-          <BsArrowRightShort className='text-2xl' />
+          <BsArrowLeftShort className='text-2xl'/>
         </button>
       </div>
     </div>

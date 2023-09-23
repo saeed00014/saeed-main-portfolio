@@ -17,13 +17,28 @@ const HomeDiscount = () => {
   return (
     <section className='flex items-center justify-center w-screen'>
       <div className='flex items-center justify-center flex-col md:pt-8 pt-4 md:gap-8 gap-4'>
+
         <div className={`${styles.paddingX} flex justify-between items-center w-screen md:h-20 h-16 bg-yellow-500`}>
           <PrecentMaker />
           <h1 className='md:text-3xl text-2xl font-[500] pb-1 text-white'>تخفیف های ویژه</h1>
           <PrecentMaker />
         </div>
-        <div className='flex flex-row-reverse justify-end w-screen h-[16.5rem] bg-red-400 py-6 pl-2 max-w-[1450px] overflow-x-scroll'>
+
+        <div className='flex flex-row justify-end w-screen h-[16.5rem] bg-red-400 py-6 pl-2 max-w-[1450px] overflow-x-scroll'>
+
           <div className='relative flex flex-col items-center justify-center h-full min-w-max [&>*]:text-white'>
+
+            <div className='absolute bottom-2'>
+              <Link to='' className='flex text-[1.2rem] gap-1 cursor-pointer'>
+                <span className='sm:pt-[2px] -mt-1'>
+                  &lt;
+                </span>
+                <p className='sm:text-[1rem] text-[.9rem]'>
+                  مشاهده همه
+                </p>
+              </Link>
+            </div>
+
             <div className='flex flex-col sm:w-[10rem] w-[7rem] pb-6'>
               <h1 className='flex items-start justify-center w-full font-[500] sm:text-[1rem] text-[.8rem]'>
                 تخفیف های امروز 
@@ -35,18 +50,10 @@ const HomeDiscount = () => {
                 </span>
               </span>
             </div>
-            <div className='absolute bottom-2'>
-              <Link to='' className='flex text-[1.2rem] gap-1 cursor-pointer'>
-                <span className='sm:pt-[2px] -mt-1'>
-                  &lt;
-                </span>
-                <p className='sm:text-[1rem] text-[.9rem]'>
-                  مشاهده همه
-                </p>
-              </Link>
-            </div>
+
           </div>
-          <div className='flex flex-row-reverse gap-1 h-full overflow-x-scroll'>
+          
+          <div className='flex flex-row gap-1 h-full overflow-x-scroll'>
             {productCardDiscount.map((product) => {
               return (
                 <div>
@@ -55,7 +62,9 @@ const HomeDiscount = () => {
               )
             })}
           </div>
+          
         </div>
+        
       </div>
     </section>
   )

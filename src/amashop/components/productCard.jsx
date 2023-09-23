@@ -10,14 +10,14 @@ const ProductCard = ({product}) => {
       <div className='flex flex-col'>
         <div className='flex justify-between'>
           <p className='flex gap-1'>
-            <span className='text-[.5rem]'>
-              تومان
-            </span>
             <span className='-ml-1'>
               {product.price - product.price * product.discountPrecent / 100}
             </span>
+            <span className='text-[.5rem]'>
+              تومان
+            </span>
           </p>
-          <span className='flex py-[2px] px-2 bg-red-600 rounded-full text-white'>
+          <span className='flex py-[1px] px-[5px] text-[.9rem] bg-red-600 rounded-full text-white'>
             {product.discountPrecent}%
           </span>
         </div>
@@ -29,8 +29,8 @@ const ProductCard = ({product}) => {
         </div>
       </div>
       <button onClick={() => dispatch(addcard(product))} className='bg-yellow-500 py-1 px-3 text-[.7rem] rounded-[10px] text-g_Text_White'>
-            افزودن به سبد خرید
-          </button>
+        افزودن به سبد خرید
+      </button>
     </div>
   )
 }

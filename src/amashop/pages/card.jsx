@@ -161,15 +161,13 @@ const CardPage = () => {
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col items-center justify-center md:w-[250px] h-[125px] p-2 bg-g_Text_White gap-4'>
             <div className='flex gap-1'>
-              <p className='flex flex-row'>
+              <span className='flex flex-row'>
                 <p>هزینه کل</p>  
-                :&#40;
+                &#40;
                 {data.totalitems}
                 <p>مورد</p>
-                &#41;
-              </p>
-              <span className='flex flex-row'>
-                {data.totalprice} 
+                &#41;:
+                {data.totalprice}
                 <p className='text-[.6rem]'>تومان</p>  
               </span>
             </div>

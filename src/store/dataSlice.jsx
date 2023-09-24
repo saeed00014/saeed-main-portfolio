@@ -29,13 +29,14 @@ const dataSlice = createSlice({
           state.totalprice = newItem.avalability ? state.totalprice + newItem.price - newItem.price * newItem.discountPrecent / 100 : state.totalprice)
     },
     deletecard(state, action) {
-      const newitem = action.payload
-      const foundedProduct = state.cardproducts.find((product) => product.id == newitem.id)
+      const newItem = action.payload
+      const foundedProduct = state.cardproducts.find((product) => product.id == newItem.id)
 
-      state.totalitems = state.totalitems - foundedProduct.quantity
-      
+      state.totalitems = newItem.avalability ? state.totalitems - foundedProduct.quantity : state.totalitems
+      state.totalprice = newItem.avalability ? state.totalprice - (newItem.price - newItem.price * newItem.discountPrecent / 100) : state.totalprice
+
       state.cardproducts = 
-        state.cardproducts.filter((product) => product.id !== newitem.id)
+        state.cardproducts.filter((product) => product.id !== newItem.id)
     },
     selectquantitycard(state, action) {
       const newItem = action.payload

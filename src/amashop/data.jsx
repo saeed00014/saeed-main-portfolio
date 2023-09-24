@@ -147,7 +147,7 @@ export const productCardDiscount = [
   {
     id: 3,
     img: product3,
-    title: 'این محصول را بخرید',
+    title: 'فلوئید ضد آفتاب مای مدل Hyaluronic Acid حجم 50 میلی لیتر',
     avalability: true,
     remaining: 1,
     rate: 1.3,
@@ -157,7 +157,7 @@ export const productCardDiscount = [
   {
     id: 4,
     img: product4,
-    title: 'این محصول را بخرید',
+    title: 'گوشی موبایل سامسونگ مدل Galaxy A13 دو سیم کارت ظرفیت 64 گیگابایت و رم 4 گیگابایت به همراه شارژر',
     avalability: true,
     remaining: '',
     rate: 3.5,
@@ -167,7 +167,7 @@ export const productCardDiscount = [
   {
     id: 5,
     img: product5,
-    title: 'این محصول را بخرید',
+    title: 'هدفون مخصوص بازی اونیکوما مدل K19',
     avalability: true,
     remaining: '',
     rate: 2.3,
@@ -177,7 +177,7 @@ export const productCardDiscount = [
   {
     id: 6,
     img: product6,
-    title: 'این محصول را بخرید',
+    title: 'لپ تاپ 13.3 اینچی اپل مدل MacBook Air MGN63 2020',
     avalability: false,
     remaining: '',
     rate: 2.5,
@@ -187,7 +187,7 @@ export const productCardDiscount = [
   {
     id: 7,
     img: product7,
-    title: 'این محصول را بخرید',
+    title: 'ادو پرفیوم زنانه نیفتی مدل ورساچه ورسوز حجم 100 میلی لیتر',
     avalability: true,
     remaining: '',
     rate: 4,
@@ -207,7 +207,7 @@ export const productCardDiscount = [
   {
     id: 9,
     img: product9,
-    title: 'این محصول را بخرید',
+    title: 'کفش پیاده روی کفش سعیدی مدل 204Fili',
     avalability: true,
     remaining: '',
     rate: 4.1,
@@ -217,7 +217,7 @@ export const productCardDiscount = [
   {
     id: 10,
     img: product10,
-    title: 'این محصول را بخرید',
+    title: 'لپ تاپ 16.1 اینچی اچ‌پی مدل OMEN 16-B0001-i7 32GB 1TB 3070',
     avalability: true,
     remaining: 5,
     rate: 5,

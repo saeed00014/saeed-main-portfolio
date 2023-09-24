@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 
-import SearchIcon from '@mui/icons-material/Search';
-import LoginIcon from '@mui/icons-material/Login';
+import SearchIcon from '@mui/icons-material/Search'
+import LoginIcon from '@mui/icons-material/Login'
 import {MdOutlineLocationOn} from 'react-icons/md'
 import {RiShoppingCartLine} from 'react-icons/ri'
 
-import { Link } from 'react-router-dom';
-import { styles } from '../styles';
-import { navLink, navLinkPhone } from '../data';
-import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
+import { styles } from '../styles'
+import { navLink, navLinkPhone } from '../data'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const data = useSelector((state) => state.data)
@@ -16,11 +16,11 @@ const Header = () => {
 
   const ATagMaker = ({name, path, icon}) => {
     return (
-      <Link onClick={() => setActive(path)} to={path} className='flex lg:px-4 px-2 font-bold min-w-max gap-1 text-[14px]'>
-        {name}
+      <Link onClick={() => setActive(path)} to={path} className='flex lg:px-4 px-2 font-bold min-w-max gap-1 text-[16px]'>
         <span>
           {icon}
         </span>
+        {name}
       </Link>
     )
   }
@@ -28,12 +28,12 @@ const Header = () => {
   const LiMaker = ({ename, name, path, icon, activeIcon, i}) => {
     return (
       <li onClick={() => setActive(path)} className={`relative flex justify-center items-center ${i== '1' ? 'h-full' : 'h-8'}  xl:px-3 px-2`}>
-        <Link to={path} className={`flex ${i == '1' ? 'flex-col-reverse gap-2' : 'gap-1 '} font-sans text-[14px] min-w-max`}> 
-          {name}
+        <Link to={path} className={`flex ${i == '1' ? 'flex-col gap-2' : 'gap-1 '} font-sans text-[14px] min-w-max`}> 
           <span className={`flex items-center justify-center pt-[3px] ${i == '1' ? 'scale-[1.7]' :'scale-125'} `}>
             {active.substring(active.length - 4) == 'shop' && ename == 'shop' ? activeIcon
             : active.includes(ename) && ename !== 'shop' ? activeIcon : icon}
           </span>
+          {name}
         </Link>
         {ename == 'card' && <span className='absolute right-3 bottom-6 flex items-center justify-center w-2 h-2 p-[.7rem] rounded-full bg-red-500 text-g_Text_White'>
             {data.cardproducts.length}
@@ -96,15 +96,15 @@ const Header = () => {
           <ul className='flex flex-row justify-between items-center h-14 max-w-[1100px] [&>*:nth-child(1)]:pr-0'>
             
             <li className={`flex justify-center items-center gap-2 h-8 px-3`}>
-              <Link onClick={() => setActive(navLink[0].path)} to={navLink[0].path} className='font-[700] text-[18px]  min-w-max'> 
+              <Link onClick={() => setActive(navLink[0].path)} to={navLink[0].path} className='flex gap-2 font-[700] text-[18px]  min-w-max'> 
+                <span className='flex items-center justify-center scale-125'>
+                  {navLink[0].icon}
+                </span>
                 {navLink[0].name}
               </Link>
-              <span className='flex items-center justify-center scale-125'>
-                {navLink[0].icon}
-              </span>
             </li>
 
-            <div className='flex flex-row 2xl:border-l-[1px] border-l-none border-r-[1px]'>
+            <div className='flex [&>*]:text-gray-600 flex-row 2xl:border-l-[1px] border-l-none border-r-[1px]'>
               {navLink.map((link) => {
                 return (
                   <>
@@ -121,7 +121,7 @@ const Header = () => {
           </ul>
 
           <div className='lg:flex hidden items-center justify-center h-8 gap-2 cursor-pointer'>
-            <p className='min-w-max font-[800] xl:text-[1rem] text-[0.7rem]'>
+            <p className='min-w-max font-[500] xl:text-[1rem] text-[0.8rem]'>
               لطفا شهر خود را انتخاب کنید   
             </p>
             <span>
@@ -130,7 +130,7 @@ const Header = () => {
           </div>
         </nav>
 
-        <nav className={`${styles.paddingX} fixed bottom-0 left-0 md:hidden flex flex-row items-center w-screen h-16 justify-between border-t-[3px] bg-white z-50`}>
+        <nav className={`${styles.paddingX} text-gray-500 fixed bottom-0 left-0 md:hidden flex flex-row items-center w-screen h-16 justify-between border-t-[3px] bg-white z-50`}>
           {navLinkPhone.map((link) => {
             return (
               <LiMaker ename={link.ename} name={link.name} icon={link.icon} activeIcon={link.activeIcon} path={link.path} i='1' />

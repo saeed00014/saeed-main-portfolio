@@ -23,10 +23,10 @@ const dataSlice = createSlice({
           ? (state.cardproducts[foundedIndex] =
             {...state.cardproducts[foundedIndex], quantity: state.cardproducts[foundedIndex].quantity + 1},
             state.totalitems =  newItem.avalability ? state.totalitems + 1 : state.totalitems, 
-            state.totalprice = newItem.avalability ? state.totalprice + state.cardproducts[foundedIndex].price : state.totalprice ) : ''
+            state.totalprice = newItem.avalability ? state.totalprice + state.cardproducts[foundedIndex].price - state.cardproducts[foundedIndex].price * state.cardproducts[foundedIndex].discountPrecent / 100 : state.totalprice ) : ''
         : (state.cardproducts.push({...newItem, quantity: 1}),
           state.totalitems = newItem.avalability ? state.totalitems + 1 : state.totalitems,
-          state.totalprice = newItem.avalability ? state.totalprice + newItem.price : state.totalprice)
+          state.totalprice = newItem.avalability ? state.totalprice + newItem.price - newItem.price * newItem.discountPrecent / 100 : state.totalprice)
     },
     deletecard(state, action) {
       const newitem = action.payload
@@ -44,7 +44,7 @@ const dataSlice = createSlice({
 
       state.cardproducts[foundedIndex] = newItem
       
-      state.totalprice = state.totalprice - foundedProduct.price * foundedProduct.quantity + newItem.price * newItem.quantity
+      state.totalprice = state.totalprice - (foundedProduct.price - newItem.price * newItem.discountPrecent / 100) * foundedProduct.quantity + (newItem.price - newItem.price * newItem.discountPrecent / 100) * newItem.quantity
       
       state.totalitems = state.totalitems - foundedProduct.quantity + newItem.quantity
     },

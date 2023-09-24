@@ -35,11 +35,12 @@ const CardPage = () => {
               <p>{product.title}</p>
               <div className='flex gap-4'>
                 <span className='flex flex-row gap-1'>
+                  قیمت:
                   {product.price}
                   <small>تومان</small>  
                 </span>
                 {product.discountPrecent !== 0 && <span className='flex py-[1px] px-[5px] text-[.9rem] bg-red-600 rounded-full text-white'>
-                  {product.discountPrecent}%-
+                  {product.discountPrecent}%
                 </span>}
               </div>
               <div className='flex flex-col text-[.8rem]'>
@@ -123,8 +124,8 @@ const CardPage = () => {
             <p>...</p>
           </div>
           <span className='flex w-full justify-start'>
+            {product.price - product.price * product.discountPrecent / 100}
             <small>تومان</small> 
-            {product.price}
           </span>
           <div style={{direction: 'initial'}} className='flex relative w-full h-[16px]'>
             <RateHandler product={product}/>
@@ -153,7 +154,7 @@ const CardPage = () => {
             })}
           </div>
           <div className='flex w-full justify-start'>
-            {data.cardproducts.length > 0 && <button onClick={() => dispatch(clearall())} className='flex items-center justify-center bg-red-400 text-g_Text_White py-3 px-12 w-fit mt-4'>
+            {data.cardproducts.length > 0 && <button onClick={() => dispatch(clearall())} className='flex items-center justify-center bg-gray-400 text-g_Text_White py-2 px-12 w-fit mt-4 rounded-[2rem]'>
               حذف همه
             </button>}
           </div>

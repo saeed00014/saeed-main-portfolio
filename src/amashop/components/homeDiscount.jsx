@@ -30,12 +30,12 @@ const HomeDiscount = () => {
 
             <div className='absolute bottom-2'>
               <Link to='' className='flex text-[1.2rem] gap-1 cursor-pointer'>
-                <span className='sm:pt-[2px] -mt-1'>
-                  &lt;
-                </span>
                 <p className='sm:text-[1rem] text-[.9rem]'>
                   مشاهده همه
                 </p>
+                <span className='sm:pt-[2px] -mt-1'>
+                  &gt;
+                </span>
               </Link>
             </div>
 

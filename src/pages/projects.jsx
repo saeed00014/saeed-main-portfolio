@@ -25,7 +25,7 @@ const ProjectPage = () => {
             Take a Look at my Best Work
           </p>
         </div>
-        <div className='flex flex-wrap justify-evenly w-full gap-4'>
+        <div className='flex [&>*:nth-child(2)]:hidden flex-wrap justify-evenly w-full gap-4'>
           {projects.map((project) => {
             return (
               <Tilt options={options} key={project.id} className='flex'>

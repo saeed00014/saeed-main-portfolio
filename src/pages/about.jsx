@@ -5,7 +5,7 @@ import ResumeComponent from '../components/resume'
 
 import { skill } from '../data/data'
 
-import resume from '../images/resume.pdf'
+import resume from '../assets/images/resume.pdf'
 
 const AboutPage = () => {
   const [screen, setScreen] = useState(false)

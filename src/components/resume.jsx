@@ -2,7 +2,7 @@ import React from 'react'
 
 import SideLoadingCommponent from './loading'
 
-import persian from '../images/perres.png'
+import persian from '../assets/images/perres.png'
 
 const ResumeComponent = () => {
 

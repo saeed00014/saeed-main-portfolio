@@ -1,10 +1,23 @@
+require("dotenv").config();
+const bodyParser = require('body-parser')
+const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 const cors = require('cors')
-
 const app = express();
 
-app.use(cors())
+const router = require("./backend/route/product");
+
+const corsOptions ={
+  origin:'*', 
+  credentials:true,       
+  optionSuccessStatus:200,
+}
+app.use(cors(corsOptions))
+
+app.use(bodyParser.json())
+
+app.use('/products', router);
 
 app.use("/", express.static(path.join(__dirname, "./dist")));
 
@@ -12,7 +25,13 @@ app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "index.html"));
 })
 
-const PORT = 4000
-app.listen(PORT, () => {
-  console.log(`> Local: \x1b[36mhttp://localhost:\x1b[1m${PORT}/\x1b[0m`);
-});
+app.listen(4000, () => console.log("Server is running"));
+
+mongoose.connect(
+  'mongodb+srv://saeed00014:amiralim890@cluster0.79q6syx.mongodb.net/?retryWrites=true&w=majority',
+  {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      writeConcern: { w: 'majority' },
+  }
+);

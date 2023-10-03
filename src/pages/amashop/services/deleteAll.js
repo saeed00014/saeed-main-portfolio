@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const deleteAll = async () => {
-  await axios.delete(`http://localhost:4000/products/all`)
+  await axios.delete(`http://saeedwebdev.ir/products/all`)
 }
 
 export default deleteAll

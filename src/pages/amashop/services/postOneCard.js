@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const PostOneCard = (founded, product) => {
   const handlePost = async (founded, product) => {
-    await axios.post('http://localhost:4000/products', {
+    await axios.post('http://saeedwebdev.ir/products', {
       "id": product.id,
       "img": product.img,
       "title": product.title,

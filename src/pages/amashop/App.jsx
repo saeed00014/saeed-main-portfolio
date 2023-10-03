@@ -19,7 +19,7 @@ function AppS() {
 
   useEffect(() => {
     const handleGetAllCard = async () => {
-      await axios.get('http://localhost:4000/products', {
+      await axios.get('http://saeedwebdev.ir/products', {
         headers: {"Access-Control-Allow-Origin": "*"}
       })
       .then((res) => dispatch(getAllCards(res.data)))

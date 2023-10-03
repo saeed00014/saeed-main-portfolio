@@ -26,7 +26,7 @@ const ProductCard = ({product}) => {
     const value = e.target.value
     dispatch(selectquantitycard({...product, quantity: Number(value)}))
     setQuantity(value)
-    await axios.patch(`http://localhost:4000/products/${product.id}`, {
+    await axios.patch(`http://saeedwebdev.ir/products/${product.id}`, {
       "quantity": value 
     })
   }

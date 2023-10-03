@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import SectionWraper from '../../components/hoc'
 import RateHandler from '../../components/rateHandler'
-import { addcard } from '../../../store/dataSlice'
+import { addcard } from '../../../../store/dataSlice'
 
 import { productCardDiscount } from '../../data/data'
-import Header from './header'
 
 const Product = () => {
   const dispatch = useDispatch()

@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import SectionWraper from '../../components/hoc'
-import { clearall } from '../../../store/dataSlice'
+import { clearall } from '../../../../store/dataSlice'
 import SuggestCard from './suggestions'
 import ProductCard from './product'
 import { productCardDiscount } from '../../data/data'
@@ -13,7 +13,6 @@ import Loading from '../../components/loading'
 const CardPage = () => {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.data)
-
   const loading = useSelector((state) => state.loading)
 
   const handleDeleteAll = async () => {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-import HocWraper from '../HOC/hoc'
+import HocWraper from '../components/hoc'
 import ResumeComponent from '../components/resume'
-import { Link } from 'react-router-dom'
-import persian from '../images/perres.png'
+
+import { skill } from '../data/data'
+
 import resume from '../images/resume.pdf'
-import { skill } from '../data'
 
 const AboutPage = () => {
   const [screen, setScreen] = useState(false)

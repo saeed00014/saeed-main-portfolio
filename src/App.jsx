@@ -1,4 +1,4 @@
-import './index.css'
+import './assets/index.css'
 
 import { Suspense, lazy } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"

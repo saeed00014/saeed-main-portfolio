@@ -28,8 +28,8 @@ export const h1 = {
 
 }
 
-import AjorPlus from './images/Ajorplushdash.png'
-import amashop from './images/amashop.jpg'
+import AjorPlus from '../assets/images/Ajorplushdash.png'
+import amashop from '../assets/images/amashop.jpg'
 
 export const projects = [
   {
@@ -72,16 +72,16 @@ export const projects = [
   }
 ]
 
-import express from './images/express.png'
-import html5 from './images/html5.png'
-import css3 from './images/css3.png'
-import javascript from './images/javascript.png'
-import react from './images/react.png'
-import redux from './images/redux.png'
-import tailwind from './images/tailwind.png'
-import restapi from './images/restapi.png'
-import next from './images/next.png'
-import node from './images/node.png'
+import express from '../assets/images/express.png'
+import html5 from '../assets/images/html5.png'
+import css3 from '../assets/images/css3.png'
+import javascript from '../assets/images/javascript.png'
+import react from '../assets/images/react.png'
+import redux from '../assets/images/redux.png'
+import tailwind from '../assets/images/tailwind.png'
+import restapi from '../assets/images/restapi.png'
+import next from '../assets/images/next.png'
+import node from '../assets/images/node.png'
 
 export const skill = [
   {

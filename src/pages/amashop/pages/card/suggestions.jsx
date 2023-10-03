@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { useTextWidth } from "@tag0/use-text-width"
 
 import RateHandler from "../../components/rateHandler"
-import { addcard } from "../../../store/dataSlice"
+import { addcard } from "../../../../store/dataSlice"
 
 import axios from "axios"
+import PostOneCard from "../../services/postOneCard"
 
 const SuggestCard = ({product}) => {
   const dispatch = useDispatch()
@@ -12,27 +13,10 @@ const SuggestCard = ({product}) => {
 
   const width = useTextWidth({ text: product.title})
 
-  const handlePost = async (product) => {
-    const founded = data.cards.find((card) => card.id == product.id)
+  const handlePost = (product) => {
+    const founded = data.cards.find((card) => card.id == product.id) 
     dispatch(addcard(product))
-    await axios.post('http://localhost:4000/products', {
-      "id": product.id,
-      "img": product.img,
-      "title": product.title,
-      "avalability": product.avalability,
-      "remaining": product.remaining,
-      "rate": product.rate,
-      "price": product.price,
-      "discountPrecent": product.discountPrecent,
-      "quantity": 
-      product.avalability 
-      ? founded 
-        ? founded.quantity < 9 
-          ? founded.quantity + 1 
-          : founded.quantity 
-        : 1
-      : 0          
-    })
+    PostOneCard(founded, product)
   }
 
   return (

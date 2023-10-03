@@ -3,7 +3,8 @@ import './assets/global.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { getAllCards } from '../store/dataSlice'
+import { getAllCards } from '../../store/dataSlice'
+import { cardLoading } from '../../store/loadingSlice'
 
 import HomePage from "./pages/home/home"
 import CardPage from "./pages/card/card"
@@ -12,18 +13,18 @@ import Footer from "./components/footer"
 import Product from "./pages/product/product"
 
 import axios from 'axios'
-import { cardLoading } from '../store/loadingSlice'
 
 function AppS() {
   const dispatch = useDispatch()
 
   useEffect(() => {
     const handleGetAllCard = async () => {
-      const res = await axios.get('http://localhost:4000/products', {
+      await axios.get('http://localhost:4000/products', {
         headers: {"Access-Control-Allow-Origin": "*"}
       })
-      .then((res) => dispatch(cardLoading(false), dispatch(getAllCards(res.data))))
-      .catch(() => console.log('failed'))
+      .then((res) => dispatch(getAllCards(res.data)))
+      .catch((err) => console.log(err))
+      .finally(() => dispatch(cardLoading(false)))
     }
     handleGetAllCard()
   }, [])

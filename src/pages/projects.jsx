@@ -1,10 +1,12 @@
 import React from 'react'
-import HocWraper from '../HOC/hoc'
-import { projects } from '../data'
-import { Link } from 'react-router-dom'
 import { Tilt } from 'react-tilt'
+
+import HocWraper from '../components/hoc'
+
 import GitHubIcon from '@mui/icons-material/GitHub'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
+
+import { projects } from '../data/data'
 
 const ProjectPage = () => {
   const options = {

@@ -1,8 +1,7 @@
 import axios from 'axios'
-import React from 'react'
 
-const PostOneCard = ({founded}) => {
-  const handlePost = async (founded) => {
+const PostOneCard = (founded, product) => {
+  const handlePost = async (founded, product) => {
     await axios.post('http://localhost:4000/products', {
       "id": product.id,
       "img": product.img,
@@ -22,7 +21,7 @@ const PostOneCard = ({founded}) => {
       : 0          
     })
   }
-  handlePost(founded)
+  handlePost(founded, product)
 }
 
 export default PostOneCard

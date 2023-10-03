@@ -1,8 +1,10 @@
 import React from 'react'
-import HocWraper from '../HOC/hoc'
-import { h1 } from '../data'
-import TagMaker from '../components/tagMaker'
 import { Link } from 'react-router-dom'
+
+import TagMaker from '../components/tagMaker'
+import HocWraper from '../components/hoc'
+
+import { h1 } from '../data/data'
 
 const HomePage = () => {
   const H1Maker = ({letter}) => {

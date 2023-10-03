@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: yekanb;
-  src: url('Yekan.ttf');
+  src: url('./fonts/Yekan.ttf');
 }
 
 @font-face {
   font-family: sansi;
-  src: url('Iranian\ Sans.ttf');
+  src: url('./fonts/Sans.ttf');
 
 }
 

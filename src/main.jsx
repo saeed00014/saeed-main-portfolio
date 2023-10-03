@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import AppS from './amashop/App'
 import { configureStore } from '@reduxjs/toolkit'
-import dataSlice from './store/dataSlice'
 import { Provider } from 'react-redux'
+
+import App from './App'
+import AppS from './pages/amashop/App'
+
+import dataSlice from './store/dataSlice'
 import loadingSlice from './store/loadingSlice'
 
 const store = configureStore({

@@ -1,15 +1,21 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
-import { deletecard, selectquantitycard } from "../../../store/dataSlice"
+import { deletecard, selectquantitycard } from "../../../../store/dataSlice"
 
 import axios from "axios"
 import deleteOne from "../../services/deleteOne"
 
 const ProductCard = ({product}) => {
   const dispatch = useDispatch()
+  const data = useSelector((state) => state.data)
+  const founded = data.cards.find((card) => product.id == card.id)
 
-  const [quantity, setQuantity] = useState(product.quantity)
+  const [quantity, setQuantity] = useState(founded.quantity)
+  
+  useEffect(() => {
+    setQuantity(founded.quantity)
+  }, [founded])
 
   const handleDelete = async (product) => {
     deleteOne(product)
@@ -20,7 +26,6 @@ const ProductCard = ({product}) => {
     const value = e.target.value
     dispatch(selectquantitycard({...product, quantity: Number(value)}))
     setQuantity(value)
-
     await axios.patch(`http://localhost:4000/products/${product.id}`, {
       "quantity": value 
     })

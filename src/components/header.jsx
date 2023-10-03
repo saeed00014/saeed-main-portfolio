@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { navLinks } from '../data'
-import { Link } from 'react-router-dom'
 import styles from '../styles'
 
-import HocWraper from '../HOC/hoc'
+import React, { useState } from 'react'
+import { navLinks } from '../data/data'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [active, setActive] = useState(window.location.href)

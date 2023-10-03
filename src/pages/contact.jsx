@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
-import SideLoadingCommponent from '../components/loading';
-import AlertComponent from '../components/alert';
-import HocWraper from '../HOC/hoc'
-import styles from '../styles';
+import React, { useEffect, useRef, useState } from 'react'
+
+import emailjs from '@emailjs/browser'
+
+import SideLoadingCommponent from '../components/loading'
+import AlertComponent from '../components/alert'
+import HocWraper from '../components/hoc'
+
 
 
 const ContactPage = ({homeedition}) => {
@@ -37,8 +39,6 @@ const ContactPage = ({homeedition}) => {
   }, [alert])
 
   const onChange = (e) => {
-    const ats = '@'
-    console.log(e.target.value.includes(ats))
     if(e.target.name == 'message' && e.target.value.length < 9) {
       setError2(true)
     }else if (e.target.name == 'user_email' && !e.target.value.includes('@') && e.target.value.length < 3) {

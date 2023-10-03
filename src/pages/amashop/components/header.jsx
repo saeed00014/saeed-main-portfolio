@@ -1,14 +1,15 @@
+import { styles } from '../styles'
+
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import SearchIcon from '@mui/icons-material/Search'
 import LoginIcon from '@mui/icons-material/Login'
 import {MdOutlineLocationOn} from 'react-icons/md'
 import {RiShoppingCartLine} from 'react-icons/ri'
 
-import { Link } from 'react-router-dom'
-import { styles } from '../styles'
 import { navLink, navLinkPhone } from '../data/data'
-import { useSelector } from 'react-redux'
 
 const Header = () => {
   const data = useSelector((state) => state.data)

@@ -7,7 +7,7 @@ import {RiShoppingCartLine} from 'react-icons/ri'
 
 import { Link } from 'react-router-dom'
 import { styles } from '../styles'
-import { navLink, navLinkPhone } from '../data'
+import { navLink, navLinkPhone } from '../data/data'
 import { useSelector } from 'react-redux'
 
 const Header = () => {
@@ -36,7 +36,7 @@ const Header = () => {
           {name}
         </Link>
         {ename == 'card' && <span className='absolute right-3 bottom-6 flex items-center justify-center w-2 h-2 p-[.7rem] rounded-full bg-red-500 text-g_Text_White'>
-            {data.cardproducts.length}
+            {data.cards.length}
           </span>
         }
       </li>
@@ -83,7 +83,7 @@ const Header = () => {
             <Link onClick={() => setActive('/shop/card')} to='/shop/card' className='relative md:flex hidden justify-center w-16 border-r-[1px] cursor-pointer'>
               <RiShoppingCartLine className='lg:text-3xl text-2xl'/>
               <span className='absolute right-1 -bottom-3 flex items-center justify-center w-3 h-3 p-[.8rem] rounded-full bg-red-500 text-g_Text_White'>
-                {data.cardproducts.length}
+                {data.cards.length}
               </span>
             </Link>
             
@@ -113,10 +113,8 @@ const Header = () => {
                 )
               })}
             </div>
-
             <div className='2xl:flex hidden'>
-              <LiMaker name='سوالی دارید؟'/>
-              <LiMaker name='در آماشاپ بفروشید!'/>
+              <LiMaker name='فروش در آماشاپ'/>
             </div>
           </ul>
 

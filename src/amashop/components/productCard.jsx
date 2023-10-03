@@ -1,11 +1,9 @@
 import React from 'react'
-import { addcard } from '../../store/dataSlice'
-import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const ProductCard = ({product}) => {
-  const dispatch = useDispatch()
   return (
-    <div className='flex flex-col items-stretch justify-between w-[10rem] h-full bg-g_Text_White px-3 py-2 cursor-pointer'>
+    <a target='_blank' href={`shop/product/${product.id}`} className='flex flex-col items-stretch justify-between w-[10rem] h-full bg-g_Text_White px-3 py-2 cursor-pointer'>
       <img src={product.img} alt="" className='w-[130px] h-[130px]' />
       <div className='flex flex-col'>
         <div className='flex justify-between'>
@@ -28,10 +26,7 @@ const ProductCard = ({product}) => {
           </small>
         </div>
       </div>
-      <button onClick={() => dispatch(addcard(product))} className='bg-yellow-500 py-1 px-3 text-[.7rem] rounded-[10px] text-g_Text_White'>
-        افزودن به سبد خرید
-      </button>
-    </div>
+    </a>
   )
 }
 

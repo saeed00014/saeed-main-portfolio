@@ -5,10 +5,12 @@ import AppS from './amashop/App'
 import { configureStore } from '@reduxjs/toolkit'
 import dataSlice from './store/dataSlice'
 import { Provider } from 'react-redux'
+import loadingSlice from './store/loadingSlice'
 
 const store = configureStore({
   reducer: {
-    data: dataSlice.reducer
+    data: dataSlice.reducer,
+    loading: loadingSlice.reducer
   }
 })
 

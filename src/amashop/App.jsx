@@ -1,13 +1,32 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom"
+import './assets/global.css'
 
-import HomePage from "./pages/home"
-import CardPage from "./pages/card"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getAllCards } from '../store/dataSlice'
+
+import HomePage from "./pages/home/home"
+import CardPage from "./pages/card/card"
 import Header from "./components/header"
 import Footer from "./components/footer"
+import Product from "./pages/product/product"
 
-import './global.css'
+import axios from 'axios'
+import { cardLoading } from '../store/loadingSlice'
 
 function AppS() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const handleGetAllCard = async () => {
+      const res = await axios.get('http://localhost:4000/products', {
+        headers: {"Access-Control-Allow-Origin": "*"}
+      })
+      .then((res) => dispatch(cardLoading(false), dispatch(getAllCards(res.data))))
+      .catch(() => console.log('failed'))
+    }
+    handleGetAllCard()
+  }, [])
 
   return (
     <BrowserRouter>
@@ -16,6 +35,7 @@ function AppS() {
       <Routes>
         <Route path="/shop" element={<HomePage />} />
         <Route path="/shop/card" element={<CardPage />} />
+        <Route path="/shop/product/*" element={<Product />} />
       </Routes>
       <Footer />
     </div>

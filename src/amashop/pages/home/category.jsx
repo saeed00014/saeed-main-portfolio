@@ -1,6 +1,7 @@
 import React from 'react'
+
 import CategoryCard from './categoryCard'
-import { categoryCard } from '../data'
+import { categoryCard } from '../../data/data'
 
 const Category = () => {
   return (

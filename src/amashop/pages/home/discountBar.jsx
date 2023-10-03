@@ -1,9 +1,11 @@
 import React from 'react'
-import { styles } from '../styles'
-import { productCardDiscount } from '../data'
-import ProductCard from './productCard'
-import {TbCalendarStats} from 'react-icons/tb'
 import { Link } from 'react-router-dom'
+import {TbCalendarStats} from 'react-icons/tb'
+
+import { styles } from '../../styles'
+
+import ProductCard from '../../components/productCard'
+import { productCardDiscount } from '../../data/data'
 
 const HomeDiscount = () => {
   const PrecentMaker = () => {
@@ -15,7 +17,7 @@ const HomeDiscount = () => {
   }
 
   return (
-    <section className='flex items-center justify-center w-screen'>
+    <section className='flex items-center justify-center w-screen overflow-x-scroll'>
       <div className='flex items-center justify-center flex-col md:pt-8 pt-4 md:gap-8 gap-4'>
 
         <div className={`${styles.paddingX} flex justify-between items-center w-screen md:h-20 h-16 bg-yellow-500`}>
@@ -62,9 +64,7 @@ const HomeDiscount = () => {
               )
             })}
           </div>
-          
         </div>
-        
       </div>
     </section>
   )

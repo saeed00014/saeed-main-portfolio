@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { headerImg } from '../data'
 
 import {BsArrowLeftShort} from 'react-icons/bs'
 import {BsArrowRightShort} from 'react-icons/bs'
+
+import { headerImg } from '../../data/data'
 
 const ImgSlider = () => {
   const [active, setActive] = useState(1)

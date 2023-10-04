@@ -8,12 +8,7 @@ const app = express();
 
 const router = require("./backend/route/product");
 
-const corsOptions ={
-  origin:'*', 
-  credentials:true,       
-  optionSuccessStatus:200,
-}
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(bodyParser.json())
 

@@ -19,8 +19,15 @@ function AppS() {
 
   useEffect(() => {
     const handleGetAllCard = async () => {
-      await axios.get('http://saeedwebdev.ir/products', {
-        headers: {"Access-Control-Allow-Origin": "*"}
+      await axios.get('https://saeedwebdev.ir/products', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          "Access-Control-Allow-Origin" : "*", 
+          "Access-Control-Allow-Credentials" : true,
+          "Access-Control-Expose-Headers": "*",
+          "Access-Control-Allow-Methods": "*" 
+        }
       })
       .then((res) => dispatch(getAllCards(res.data)))
       .catch((err) => console.log(err))

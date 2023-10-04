@@ -19,7 +19,7 @@ function AppS() {
 
   useEffect(() => {
     const handleGetAllCard = async () => {
-      await axios.get('http://saeedwebdev.ir/products', {
+      await axios.get('https://saeed-main-portfolio-api.cyclic.cloud/products', {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

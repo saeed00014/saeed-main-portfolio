@@ -20,7 +20,7 @@ const Product = () => {
   const handlePost = async (product) => {
     const founded = data.cards.find((card) => card.id == product.id)
     dispatch(addcard(product))
-    await axios.post('http://saeedwebdev.ir/products', {
+    await axios.post('https://saeed-main-portfolio-api.cyclic.cloud/products', {
       "id": product.id,
       "img": product.img,
       "title": product.title,

@@ -19,7 +19,7 @@ function AppS() {
 
   useEffect(() => {
     const handleGetAllCard = async () => {
-      await axios.get('https://saeedwebdev.ir/products', {
+      await axios.get('http://saeedwebdev.ir/products', {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

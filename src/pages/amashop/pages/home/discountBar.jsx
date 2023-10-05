@@ -5,7 +5,7 @@ import {TbCalendarStats} from 'react-icons/tb'
 import { styles } from '../../styles'
 
 import ProductCard from '../../components/productCard'
-import { productCardDiscount } from '../../data/data'
+import { productInfo } from '../../data/data'
 
 const HomeDiscount = () => {
   const PrecentMaker = () => {
@@ -56,7 +56,7 @@ const HomeDiscount = () => {
           </div>
           
           <div className='flex flex-row gap-1 h-full overflow-x-scroll'>
-            {productCardDiscount.map((product) => {
+            {productInfo.map((product) => {
               return (
                 <div>
                   <ProductCard product={product} />

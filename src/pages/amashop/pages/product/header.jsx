@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { productCardDiscount } from '../../data/data'
+import { productInfo } from '../../data/data'
 
 const Header = ({product}) => {
   return (
@@ -10,7 +10,7 @@ const Header = ({product}) => {
         {product.category}
       </h1>
       <div className='flex justify-between w-full gap-4'>
-        {productCardDiscount.map((productCard, e) => {
+        {productInfo.map((productCard, e) => {
           return (
             e < 6 && productCard.category == product.category
               ? <div className='flex flex-col items-center justify-center w-full'>

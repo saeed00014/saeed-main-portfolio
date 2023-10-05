@@ -18,39 +18,77 @@ const dataSlice = createSlice({
       })
     },
     addcard(state, action) {
-      const newItem = action.payload
-      const foundedIndex = state.cards.findIndex((product) => product.id == newItem.id)
+      const itemtoPush = action.payload
+      const itemtoPushPrice = itemtoPush.price - itemtoPush.price * itemtoPush.discountPrecent / 100 
 
-      foundedIndex >=0 
-        ? state.cards[foundedIndex].quantity < 9 
-          ? (state.cards[foundedIndex] =
-            {...state.cards[foundedIndex], quantity: state.cards[foundedIndex].quantity + 1},
-            state.totalitems =  newItem.avalability ? state.totalitems + 1 : state.totalitems, 
-            state.totalprice = newItem.avalability ? state.totalprice + state.cards[foundedIndex].price - state.cards[foundedIndex].price * state.cards[foundedIndex].discountPrecent / 100 : state.totalprice ) : ''
-        : (state.cards.push({...newItem, quantity: 1}),
-          state.totalitems = newItem.avalability ? state.totalitems + 1 : state.totalitems,
-          state.totalprice = newItem.avalability ? state.totalprice + newItem.price - newItem.price * newItem.discountPrecent / 100 : state.totalprice)
+      const foundedProductIndex = state.cards.findIndex((product) => product.id == itemtoPush.id)
+      const foundedProduct = state.cards[foundedProductIndex]
+      const foundedProductPrice = foundedProduct && foundedProduct.price - foundedProduct.price * foundedProduct.discountPrecent / 100 
+      const foundedProductQuantity = foundedProduct &&  foundedProduct.quantity
+
+      foundedProductIndex >= 0 
+        ? foundedProductQuantity < 9 
+          ? (state.cards[foundedProductIndex] =
+              {...foundedProduct, quantity: foundedProductQuantity + 1},
+              state.totalitems = 
+                itemtoPush.isAvailable 
+                    ? state.totalitems + 1 
+                    : state.totalitems, 
+              state.totalprice = 
+                itemtoPush.isAvailable 
+                  ? state.totalprice + foundedProductPrice
+                  : state.totalprice 
+          ) : ''
+        : (state.cards.push({...itemtoPush, quantity: 1}),
+          state.totalitems = 
+            itemtoPush.isAvailable 
+              ? state.totalitems + 1 
+              : state.totalitems,
+          state.totalprice = 
+            itemtoPush.isAvailable 
+              ? state.totalprice + itemtoPushPrice
+              : state.totalprice
+        )
     },
     deletecard(state, action) {
-      const newItem = action.payload
-      const foundedProduct = state.cards.find((product) => product.id == newItem.id)
+      const itemtoDelete = action.payload
+      const itemtoDeletePrice = itemtoDelete.price - itemtoDelete.price * itemtoDelete.discountPrecent / 100 
+      const itemtoDeleteQuantity = foundedProduct.quantity  
 
-      state.totalitems = newItem.avalability ? state.totalitems - foundedProduct.quantity : state.totalitems
-      state.totalprice = newItem.avalability ? state.totalprice - (newItem.price - newItem.price * newItem.discountPrecent / 100) : state.totalprice
+      const foundedProduct = state.cards.find((product) => product.id == itemtoDelete.id)
+
+      state.totalitems = 
+        itemtoDelete.isAvailable 
+          ? state.totalitems - itemtoDeleteQuantity
+          : state.totalitems
+      
+      state.totalprice = 
+        itemtoDelete.isAvailable 
+          ? state.totalprice - itemtoDeletePrice 
+          : state.totalprice
 
       state.cards = 
-        state.cards.filter((product) => product.id !== newItem.id)
+        state.cards.filter((product) => product.id !== itemtoDelete.id)
     },
     selectquantitycard(state, action) {
-      const newItem = action.payload
-      const foundedIndex = state.cards.findIndex((product) => product.id == newItem.id)
-      const foundedProduct = state.cards.find((product) => product.id == newItem.id)
+      const patchedItem = action.payload
 
-      state.cards[foundedIndex] = newItem
+      const foundedProduct = state.cards.find((product) => product.id == patchedItem.id)
+      const foundedProductIndex = state.cards.findIndex((product) => product.id == patchedItem.id)
+
+      const foundedProductPrice = (foundedProduct.price - foundedProduct.price * foundedProduct.discountPrecent / 100) * foundedProduct.quantity
+      const patchedItemPrice = (patchedItem.price - patchedItem.price * patchedItem.discountPrecent / 100) * patchedItem.quantity
       
-      state.totalprice = state.totalprice - (foundedProduct.price - newItem.price * newItem.discountPrecent / 100) * foundedProduct.quantity + (newItem.price - newItem.price * newItem.discountPrecent / 100) * newItem.quantity
+      const foundedProductQuantity = foundedProduct.quantity
+      const patchedItemQuantity = patchedItem.quantity
+
+      state.cards[foundedProductIndex] = patchedItem
       
-      state.totalitems = state.totalitems - foundedProduct.quantity + newItem.quantity
+      state.totalprice = 
+        state.totalprice - foundedProductPrice + patchedItemPrice
+      
+      state.totalitems = 
+        state.totalitems - foundedProductQuantity + patchedItemQuantity
     },
     clearall(state, action) {
       state.cards = []

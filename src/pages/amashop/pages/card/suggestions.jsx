@@ -4,7 +4,6 @@ import { useTextWidth } from "@tag0/use-text-width"
 import RateHandler from "../../components/rateHandler"
 import { addcard } from "../../../../store/dataSlice"
 
-import axios from "axios"
 import PostOneCard from "../../services/postOneCard"
 
 const SuggestCard = ({product}) => {

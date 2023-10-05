@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { deletecard, selectquantitycard } from "../../../../store/dataSlice"
 
-import axios from "axios"
 import deleteOne from "../../services/deleteOne"
+import patchCard from "../../services/patchCard"
 
 const ProductCard = ({product}) => {
   const dispatch = useDispatch()
@@ -17,18 +17,16 @@ const ProductCard = ({product}) => {
     setQuantity(founded.quantity)
   }, [founded])
 
-  const handleDelete = async (product) => {
+  const handleDelete = (product) => {
     deleteOne(product)
     dispatch(deletecard(product))
   }
 
-  const handleSelect = async (e) => {
+  const handleSelect = (e) => {
     const value = e.target.value
     dispatch(selectquantitycard({...product, quantity: Number(value)}))
     setQuantity(value)
-    await axios.patch(`https://saeed-main-portfolio-api.cyclic.cloud/products/${product.id}`, {
-      "quantity": value 
-    })
+    patchCard(product)
   }
 
   return (
@@ -56,7 +54,7 @@ const ProductCard = ({product}) => {
               <label htmlFor={`gift${product.id}`} className='pb-1'>این یک هدیه است</label>
             </div>
               <div className='flex flex-row gap-1'>
-                {product.avalability ? <span className='flex w-fit text-[.7rem] text-green-600'>
+                {product.isAvailable ? <span className='flex w-fit text-[.7rem] text-green-600'>
                   موجود
                 </span> : <span className='flex w-fit font-[500] text-red-600'>
                   نا موجود
@@ -74,7 +72,7 @@ const ProductCard = ({product}) => {
           <div className='flex flex-row flex-wrap items-center pt-2'>
             <div className='relative flex items-center justify-center '>
               <select style={{direction: 'initial'}} id={product.id} name='تعداد' value={quantity} onChange={(e) => handleSelect(e)} className='flex w-[73px] h-[30px] px-1 pb-1 rounded-[15px] bg-transparent shadow-3xl z-10'>
-                {product.avalability 
+                {product.isAvailable 
                 ?<>
                   <option value='1'>1</option>
                   <option value='2'>2</option>
@@ -106,7 +104,7 @@ const ProductCard = ({product}) => {
           </div>
       </div>
       </div>
-      {product.avalability ? <div className='flex justify-start w-full pb-4 pt-1 pr-4 border-t-2'>
+      {product.isAvailable ? <div className='flex justify-start w-full pb-4 pt-1 pr-4 border-t-2'>
         هزینه کل : {(product.price - product.price * product.discountPrecent / 100) * product.quantity} تومان
         </div>
         : <div className='flex justify-start w-full pb-4 pt-1 pr-4 border-t-2'>موجود شد اطلاع بده</div> }  

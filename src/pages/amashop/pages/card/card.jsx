@@ -5,7 +5,7 @@ import SectionWraper from '../../components/hoc'
 import { clearall } from '../../../../store/dataSlice'
 import SuggestCard from './suggestions'
 import ProductCard from './product'
-import { productCardDiscount } from '../../data/data'
+import { productInfo } from '../../data/data'
 
 import deleteAll from '../../services/deleteAll'
 import Loading from '../../components/loading'
@@ -15,7 +15,7 @@ const CardPage = () => {
   const data = useSelector((state) => state.data)
   const loading = useSelector((state) => state.loading)
 
-  const handleDeleteAll = async () => {
+  const handleDeleteAll = () => {
     deleteAll()
     dispatch(clearall())
   }
@@ -62,7 +62,7 @@ const CardPage = () => {
             </button>
           </div>
           <div className='flex md:flex-col flex-wrap items-center justify-around md:[&>*:nth-child(1)]:rounded-t-[1rem] gap-y-2'>
-            {productCardDiscount.map((product, e) => {
+            {productInfo.map((product, e) => {
               return (
                 <SuggestCard product={product}/>
               )

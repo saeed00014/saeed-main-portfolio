@@ -7,7 +7,7 @@ import SectionWraper from '../../components/hoc'
 import RateHandler from '../../components/rateHandler'
 import { addcard } from '../../../../store/dataSlice'
 
-import { productCardDiscount } from '../../data/data'
+import { productInfo } from '../../data/data'
 
 const Product = () => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ const Product = () => {
   
   const url = window.location.href
   const id = url.slice(url.length - 1, url.length)  
-  const product = productCardDiscount.find((product) => product.id == id) 
+  const product = productInfo.find((product) => product.id == id) 
 
   const handlePost = async (product) => {
     const founded = data.cards.find((card) => card.id == product.id)
@@ -24,13 +24,13 @@ const Product = () => {
       "id": product.id,
       "img": product.img,
       "title": product.title,
-      "avalability": product.avalability,
+      "isAvailable": product.isAvailable,
       "remaining": product.remaining,
       "rate": product.rate,
       "price": product.price,
       "discountPrecent": product.discountPrecent,
       "quantity": 
-      product.avalability 
+      product.isAvailable 
       ? founded 
         ? founded.quantity < 9 
           ? founded.quantity + 1 
@@ -64,7 +64,7 @@ const Product = () => {
               <span className='w-full'>
                 قیمت: {product.price} تومان
               </span>
-              {product.avalability 
+              {product.isAvailable 
                 ? <span className='flex items-center w-full font-[500] text-green-600'>
                   موجود
                 </span> 

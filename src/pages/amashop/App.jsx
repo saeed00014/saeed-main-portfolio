@@ -28,8 +28,7 @@ function AppS() {
           "Access-Control-Expose-Headers": "*",
           "Access-Control-Allow-Methods": "*" 
         }
-      })
-      .then((res) => dispatch(getAllCards(res.data)))
+      }).then((res) => dispatch(getAllCards(res.data)))
       .catch((err) => console.log(err))
       .finally(() => dispatch(cardLoading(false)))
     }
